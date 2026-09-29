@@ -9,7 +9,7 @@ const btn3 = document.getElementById("botao3");
 let ligado = false;
 let velocidade = 1;
 
-// Limpa as velocidades antigas das classes do ventilador e remove a cor dos botões
+// Limpa as velocidades antigas do ventilador e muda a cor dos botões
 function limparVelocidades() {
     ventilador.className = ""; 
     btn1.classList.remove("ativo");
@@ -17,7 +17,7 @@ function limparVelocidades() {
     btn3.classList.remove("ativo");
 }
 
-// Atualiza o estado visual total do ventilador
+// Atualiza o visual do ventilador
 function atualizarVentilador() {
     limparVelocidades();
 
@@ -28,7 +28,7 @@ function atualizarVentilador() {
         botaoLigar.style.backgroundColor = "#ff4d4d";
         botaoLigar.style.color = "white";
 
-        // Destaca o botão da velocidade correspondente
+        // Mostra o botão da velocidade correspondente
         document.getElementById(`botao${velocidade}`).classList.add("ativo");
     } else {
         statusTexto.textContent = "Status: Desligado";
@@ -38,13 +38,13 @@ function atualizarVentilador() {
     }
 }
 
-// Evento do botão principal Ligar/Desligar
+// Botão principal Ligar/Desligar
 botaoLigar.addEventListener("click", () => {
     ligado = !ligado;
     atualizarVentilador();
 });
 
-// Eventos dos botões de velocidade
+// Botões de velocidade
 btn1.addEventListener("click", () => {
     velocidade = 1;
     ligado = true;
