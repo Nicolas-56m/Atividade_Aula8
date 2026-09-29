@@ -1,0 +1,132 @@
+/* Configuração geral da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #222;
+    color: white;
+    text-align: center;
+}
+
+/* Caixa principal */
+.container {
+    width: 400px;
+    margin: 50px auto;
+}
+
+/* Desenho do ventilador */
+#ventilador {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 30px auto;
+    background-color: #444;
+    border: 10px solid #777;
+    border-radius: 50%;
+    transition: box-shadow 0.3s ease;
+}
+
+/* Conjunto das hélices */
+.helices {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Cada hélice */
+.helice {
+    position: absolute;
+    width: 35px;
+    height: 80px;
+    background-color: #ddd;
+    top: 10px;
+    left: 72px;
+    border-radius: 50%;
+    transform-origin: center 80px;
+}
+
+/* Primeira hélice */
+.helice:nth-child(1) {
+    transform: rotate(0deg);
+}
+
+/* Segunda hélice */
+.helice:nth-child(2) {
+    transform: rotate(120deg);
+}
+
+/* Terceira hélice */
+.helice:nth-child(3) {
+    transform: rotate(240deg);
+}
+
+/* Centro do ventilador */
+.centro {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    background-color: #222;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+/* Animação das hélices */
+@keyframes girar {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Quando o ventilador está ligado (Ativa o brilho azul) */
+#ventilador.vel1, #ventilador.vel2, #ventilador.vel3 {
+    box-shadow: 0 0 30px #00aaff;
+}
+
+/* Controle do tempo de rotação baseado na velocidade ativa */
+#ventilador.vel1 .helices { animation: girar 0.8s linear infinite; }
+#ventilador.vel2 .helices { animation: girar 0.4s linear infinite; }
+#ventilador.vel3 .helices { animation: girar 0.15s linear infinite; }
+
+/* Botões */
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #e0e0e0;
+    transition: 0.2s;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Organização dos botões menores de velocidade */
+.botoes-velocidade {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+#botao1, #botao2, #botao3 {
+    width: 50px;
+    height: 40px;
+}
+
+/* Estilo que acende o botão da velocidade atual */
+.ativo {
+    background-color: #00aaff !important;
+    color: white;
+    box-shadow: 0 0 10px #00aaff;
+}
