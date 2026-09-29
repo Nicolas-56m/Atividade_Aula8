@@ -44,7 +44,7 @@ botaoLigar.addEventListener("click", () => {
     atualizarVentilador();
 });
 
-// Eventos dos botões de velocidade (ligam direto se estiver desligado)
+// Eventos dos botões de velocidade
 btn1.addEventListener("click", () => {
     velocidade = 1;
     ligado = true;
